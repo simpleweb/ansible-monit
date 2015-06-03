@@ -11,5 +11,12 @@ galaxy_info:
   categories:
   - system
   - web
-dependencies: []
-
+dependencies:
+  - role: anxs.monit
+    monit_poll_period: 20
+    monit_poll_start_delay: 60
+    monit_notify_email: "sysops@simpleweb.co.uk"
+    monit_mailserver_host: "{{ smtp_server }}"
+    monit_mailserver_username: "{{ smtp_user }}"
+    monit_mailserver_password: "{{ smtp_password }}"
+    sudo: yes
