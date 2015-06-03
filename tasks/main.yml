@@ -1,0 +1,18 @@
+---
+- name: Unicorn monit
+  action: template src=unicorn.monitrc dest=/etc/monit/conf.d/unicorn.monitrc
+  notify:
+    - reload monit
+  sudo: yes
+
+- name: Nginx monit
+  action: template src=nginx.monitrc dest=/etc/monit/conf.d/nginx.monitrc
+  notify:
+    - reload monit
+  sudo: yes
+
+- name: Haproxy monit
+  action: template src=haproxy.monitrc dest=/etc/monit/conf.d/haproxy.monitrc
+  notify:
+    - reload monit
+  sudo: yes

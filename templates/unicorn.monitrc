@@ -1,0 +1,7 @@
+check process unicorn with pidfile /home/{{ ansible_ssh_user }}/{{ app_name }}/shared/tmp/pids/unicorn.pid
+  start program "/etc/init.d/unicorn start"
+  stop program "/etc/init.d/unicorn stop"
+  if 5 restarts within 5 cycles then timeout
+  if totalcpu is greater than 50% for 2 cycles then alert
+  if totalcpu is greater than 90% for 3 cycles then restart
+  if totalmem is greater than 60% for 1 cycles then restart
