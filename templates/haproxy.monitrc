@@ -1,3 +1,5 @@
 check process haproxy with pidfile /var/run/haproxy.pid
   start program = "/etc/init.d/haproxy start"
   stop program = "/etc/init.d/haproxy stop"
+  if failed host 0.0.0.0 port 80 type tcp then alert
+  if failed host 0.0.0.0 port 443 type tcp then alert
