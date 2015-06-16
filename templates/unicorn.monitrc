@@ -1,4 +1,4 @@
-check process unicorn with pidfile /home/{{ ansible_ssh_user }}/{{ app_name }}/shared/tmp/pids/unicorn.pid
+check process unicorn with pidfile {{ app_root }}/shared/tmp/pids/unicorn.pid
   start program "/etc/init.d/unicorn start"
   stop program "/etc/init.d/unicorn stop"
   if 5 restarts within 5 cycles then timeout
